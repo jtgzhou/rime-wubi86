@@ -1,0 +1,19 @@
+patch:
+  switches/@0/reset: 0                     #默认输入是中文还是英文，1为英文，0为中文
+  style/font_face: "微软雅黑"              #候选框字体
+  style/font_point: 16                     #候选框字号
+  style/horizontal: false                  #候选框是否横向显示
+  menu/page_size: 10                        #候选词个数
+    
+  ascii_composer/good_old_caps_lock: true
+  ascii_composer/switch_key:
+    Caps_Lock: commit_code                 #Caps_Lock键切换大小写
+    Shift_L: commit_code                   #值为commit_code代表切换中英文，值为noop时代表不起作用
+    Shift_R: commit_code                   #值为commit_code代表切换中英文，值为noop时代表不起作用
+    Control_L: commit_code                 #值为commit_code代表切换中英文，值为noop时代表不起作用
+    Control_R: commit_code                 #值为commit_code代表切换中英文，值为noop时代表不起作用
+  
+  key_binder/bindings:
+    - {accept: semicolon, send: 2, when: has_menu}     #分号选第二重码
+    - {accept: apostrophe, send: 3, when: has_menu}    #引号选第三重码
+  
