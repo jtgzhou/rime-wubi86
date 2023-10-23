@@ -1,0 +1,21 @@
+# Rime dictionary
+# encoding: utf-8
+# By芮轩
+---
+name: wubi86_user
+note: "用户词库"
+version: "0.1"
+last_edit_time: "2023-10-22"
+sort: by_weight                  # by_weight代表权重，original代表原始顺序
+
+...
+
+# ----- 码表开始 -----
+# 格式：字词 键码  权重 （中间是tab，不是空格）
+# '#'开头的是注释，注释只能另起一行写，不能在词条后面写
+
+架子鼓	lbfk	1
+尤克里里	ddjj	1
+薅羊毛	autf	1
+古文观止	dych	1
+
