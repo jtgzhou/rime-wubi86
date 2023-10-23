@@ -1,0 +1,111 @@
+# Rime schema settings
+# encoding: utf-8
+
+schema:
+  schema_id: wubi86
+  name: "五笔拼音By芮轩"
+  version: "1.0"
+  author:
+    - 创始人 王永民先生
+  description: |
+    五笔字形 86 极点极爽版
+  dependencies:
+    - pinyin
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: extended_charset
+    states: [ 常用, 扩展 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - "affix_segmentor@jzzc"
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator
+    - "table_translator@fixed"
+    - "table_translator@jzzc"
+  filters:
+    - uniquifier  #过滤重复的候选字
+#    - lua_filter@single_char_first_filter # 单字优先方法
+
+speller:
+  auto_select: true                     # false表示四码唯一时不自动上屏，true表示四码唯一时自动上屏
+  auto_clear: max_length                # 空码时自动清空
+  delimiter: "`"                        # 分隔符号
+  max_code_length: 4                    # 四码上屏
+
+
+translator:
+  dictionary: wubi86
+  initial_quality: 100000
+  enable_charset_filter: false
+  enable_sentence: false
+  enable_encoder: false
+  encode_commit_history: false
+  max_phrase_length: 2
+  enable_completion: false
+  enable_user_dict: true
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+fixed:
+  __include: /translator
+  initial_quality: 1000
+  enable_encoder: true
+  enable_user_dict: true
+  
+jzzc:
+  __include: /translator
+  initial_quality: 1
+  enable_sentence: true
+  prefix: '`'
+  tips: "〔精准造词〕"
+  tag: jzzc
+
+abc_segmentor:
+  extra_tags:
+    - reverse_lookup
+
+reverse_lookup:
+  dictionary: pinyin
+  prefix: ""
+  suffix: "'"
+  tips: "〔拼音反查〕"
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "^z[a-z]*'?$"
+    jzzc: "^[a-y]*`[a-y`]*$"
