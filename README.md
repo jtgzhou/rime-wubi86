@@ -34,14 +34,6 @@
 
 ## ②将本目录下的文件拷贝至C:\Users\Administrator\AppData\Roaming\Rime
 
-## ③将上条目录下的installation.yaml文件末尾添加如下两行
+## ③在任务栏右键点击Rime输入法图标进行重新部署
 
-installation_id: Philips
-
-sync_dir: D:\NAS\sw\Rime\Sync
-
-其中Philips为电脑名，可以自定义
-
-## ④在任务栏右键点击Rime输入法图标进行重新部署
-
-## ⑤输入法设定，选择本输入法（五笔拼音By芮轩）
+## ④输入法设定，选择本输入法（五笔拼音By芮轩）
