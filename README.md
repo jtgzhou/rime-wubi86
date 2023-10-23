@@ -22,6 +22,7 @@
   wubi86.dict.yaml
   wubi86.schema.yaml
   wubi86_user.dict.yaml
+
 3、将上条目录下的installation.yaml文件末尾添加如下两行
 installation_id: T20
 sync_dir: D:\NAS\sw\Rime\Sync
@@ -29,4 +30,5 @@ sync_dir: D:\NAS\sw\Rime\Sync
 其中T20为电脑名，可以自定义
 
 4、在任务栏右键点击Rime输入法图标进行重新部署
+
 5、输入法设定，选择本输入法（五笔拼音By芮轩）
